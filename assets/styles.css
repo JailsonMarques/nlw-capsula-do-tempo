@@ -1,0 +1,183 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 16px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  /* Para definir a largura da barra de rolagem */
+}
+
+::-webkit-scrollbar-track {
+  background: #2c2c31;
+  /* Para definir a cor de fundo da barra de rolagem */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #9e9ea0;
+  /* Para definir a cor da barra de rolagem */
+}
+
+@keyframes entering {
+  from {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+body {
+  background-color: #121215;
+  color: #aeaeae;
+  font-family: 'Roboto', sans-serif;
+
+  display: grid;
+  grid-template-areas: "profile timeline";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100vh;
+}
+
+nav {
+  padding: 64px;
+  grid-area: timeline;
+
+  overflow-y: scroll;
+  /* Para que o conteúdo não ultrapasse o tamanho do container,
+  ou seja, vai rolar apenas o lado oposto ao NAV por exemplo */
+
+  animation: entering 0.7s ease-in-out;
+}
+
+.memory {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* Dar um espaço entre todos os itens */
+  text-decoration: none;
+  margin-bottom: 64px;
+  /* Para dar um espaço entre os itens do memory */
+}
+
+.memory small {
+  color: #bebebf;
+  font-size: 0.75rem;
+}
+
+.memory h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #aeaeae;
+}
+
+.memory img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+
+  transition: transform 0.3s ease-in-out;
+  /* Para que a transição seja suave */
+}
+
+.memory div {
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  /* Para que a imagem não ultrapasse o tamanho do card */
+
+  border-radius: 8px;
+}
+
+.memory:hover img {
+  transform: scale(1.1);
+  /* Para aumentar o tamanho do card */
+
+}
+
+.memory p {
+  font-size: 1.2rem;
+  color: #bebebf;
+  line-height: 28px;
+}
+
+aside {
+  grid-area: profile;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  border-right: 1px solid;
+  border-image: linear-gradient(#727272, #2c2c31) 1;
+
+  background-image: url("./background.svg");
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-image: auto 100%;
+
+}
+
+aside * {
+  animation: entering 0.7s ease-in-out;
+  /* Para aplicar o efeito aos elementos dentro do aside */
+}
+
+aside img:nth-child(2)
+
+/* Para pegar a segunda imagem */
+  {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  /* Para deixar a imagem redonda */
+
+  border: 4px solid transparent;
+  background: linear-gradient(#d39e33, #ed5636, #633bbc) padding-box,
+    linear-gradient(260deg, #d39e33, #ed5636, #633bbc) border-box;
+  /* padding-box: para que a cor não ultrapasse a borda */
+  /* border-box: para que a cor não ultrapasse a borda */
+}
+
+aside p {
+  font-size: 2rem;
+  text-align: center;
+}
+
+aside span {
+  font-size: 0.75rem;
+  color: #9e9ea0;
+}
+
+@media (max-width: 768px) {
+  :root {
+    font-size: 14px;
+  }
+
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 0.8fr;
+    grid-template-areas:
+      "profile"
+      "timeline";
+  }
+
+  aside {
+    border-right: none;
+    padding: 32px 12px;
+  }
+
+  nav {
+    overflow-y: visible;
+    padding: 22px;
+  }
+}
