@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="../nlw-capsula-do-tempo/assets/nlw.png" alt="Demonstração do Projeto" width= "100%"/>
+  <img src="/assets/nlw.png" alt="Demonstração do Projeto" width= "100%"/>
 </p>
 
 ## 🖥️ Projeto
